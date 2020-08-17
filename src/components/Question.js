@@ -42,6 +42,9 @@ function Question({ setBudget, setRest }) {
   )
 }
 
-Question.propTypes = {}
+Question.propTypes = {
+  setBudget: PropTypes.func.isRequired,
+  setRest: PropTypes.func.isRequired
+}
 
 export default Question
