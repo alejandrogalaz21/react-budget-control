@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react'
 import PropTypes from 'prop-types'
 import Error from './Error'
 
-function Question({ setBudget, setRest }) {
+function Question({ setBudget, setRest, setShowQuestion }) {
   // state
   const [money, setMoney] = useState(0)
   const [error, setError] = useState(false)
@@ -20,6 +20,7 @@ function Question({ setBudget, setRest }) {
     }
     setBudget(money)
     setRest(money)
+    setShowQuestion(false)
   }
 
   return (
