@@ -1,21 +1,23 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-const Form = props => {
-  const [input, setInput] = useState({
-    expense: '',
-    exprenseAmount: 0
-  })
-
-  const { expense, expenseAmount } = input
-
-  // handle on change input.
-  const handleOnChange = e => {}
+const Form = ({}) => {
+  const [expense, setExpense] = useState('')
+  const [exprenseAmount, setExprenseAmount] = useState('')
 
   // handle on submit form.
   const handleOnSubmit = e => {
     e.preventDefault()
+
+    // Validate
+
+    // create expense
+
+    // bubble up the expense
+
+    // reset form
   }
+
   return (
     <form onSubmit={handleOnSubmit}>
       <h2>Agrega tus gastos</h2>
@@ -28,6 +30,7 @@ const Form = props => {
           placeholder='Ej. Transporte'
           name='expense'
           value={expense}
+          onChange={e => setExpense(e.target.value)}
         />
       </div>
       <div className='campo'>
@@ -38,7 +41,8 @@ const Form = props => {
           className='u-full-width'
           placeholder='Ej. 300'
           name='expenseAmount'
-          value={expenseAmount}
+          value={exprenseAmount}
+          onChange={e => setExpense(parseInt(e.target.value), 10)}
         />
       </div>
 
