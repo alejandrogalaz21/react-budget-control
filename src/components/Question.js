@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import PropTypes from 'prop-types'
+import Error from './Error'
 
 function Question(props) {
   // state
@@ -22,7 +23,7 @@ function Question(props) {
   return (
     <Fragment>
       <h2>Coloca tu Presupuesto</h2>
-      {error && <p className='alerta-error'>Error</p>}
+      {error && <Error message='El presupuesto es incorrecto.' />}
       <form onSubmit={handleOnSubmit}>
         <input
           type='number'
