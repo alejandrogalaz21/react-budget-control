@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Question from './components/Question'
 import Form from './components/Form'
 import List from './components/List'
@@ -25,7 +25,7 @@ function App() {
       // set to false
       setAddExpense(false)
     }
-  }, [expense])
+  }, [expense, expenses, rest, AddExpense])
 
   return (
     <div className='container'>

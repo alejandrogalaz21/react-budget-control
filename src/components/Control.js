@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import { checkBudget } from './../helpers'
 
 const Control = ({ budget, rest }) => {
   return (
     <Fragment>
       <div className='alert alert-primary'>Presupuesto: $ {budget}</div>
-      <div className='alert'>Restante: $ {rest}</div>
+      <div className={checkBudget(budget, rest)}>Restante: $ {rest}</div>
     </Fragment>
   )
 }

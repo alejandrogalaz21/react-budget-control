@@ -7,7 +7,7 @@ function List({ expenses }) {
     <div className='gastos-realizados'>
       <h2>Listado :</h2>
       {expenses.map(expense => (
-        <Expense expense={expense} />
+        <Expense key={expense.id} expense={expense} />
       ))}
     </div>
   )
