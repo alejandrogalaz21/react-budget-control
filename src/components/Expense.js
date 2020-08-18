@@ -4,7 +4,10 @@ import PropTypes from 'prop-types'
 const Expense = ({ expense }) => {
   return (
     <li className='gastos'>
-      <p>{expense.expenseAmount}</p>
+      <p>
+        {expense.expenseName}
+        <span className='gasto'>$ {expense.expenseAmount}</span>
+      </p>
     </li>
   )
 }

@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react'
 import Question from './components/Question'
 import Form from './components/Form'
 import List from './components/List'
+import Control from './components/Control'
 
 function App() {
   // Define the state
@@ -32,6 +33,7 @@ function App() {
               </div>
               <div className='row one-half column'>
                 <List expenses={expenses} />
+                <Control budget={budget} rest={rest} />
               </div>
             </div>
           )}
