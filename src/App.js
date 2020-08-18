@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import Question from './components/Question'
 import Form from './components/Form'
 import List from './components/List'
@@ -10,10 +10,22 @@ function App() {
   const [rest, setRest] = useState(0)
   const [showQuestion, setShowQuestion] = useState(true)
   const [expenses, setExpenses] = useState([])
+  const [expense, setExpense] = useState({})
+  const [AddExpense, setAddExpense] = useState(false)
 
-  const handleSetExpense = expense => {
-    setExpenses([...expenses, expense])
-  }
+  useEffect(() => {
+    if (AddExpense) {
+      // add new expense to the list
+      setExpenses([...expenses, expense])
+
+      // subtraction from current budget
+      const subtraction = rest - expense.expenseAmount
+      setRest(subtraction)
+
+      // set to false
+      setAddExpense(false)
+    }
+  }, [expense])
 
   return (
     <div className='container'>
@@ -29,7 +41,7 @@ function App() {
           ) : (
             <div className='row '>
               <div className='row one-half column'>
-                <Form setExpense={handleSetExpense} />
+                <Form setExpense={setExpense} setAddExpense={setAddExpense} />
               </div>
               <div className='row one-half column'>
                 <List expenses={expenses} />

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Error from './Error'
 import shortid from 'shortid'
 
-const Form = ({ setExpense }) => {
+const Form = ({ setExpense, setAddExpense }) => {
   // state for onChange input's
   const [expenseName, setExpenseName] = useState('')
   const [expenseAmount, setExpenseAmount] = useState('')
@@ -28,6 +28,7 @@ const Form = ({ setExpense }) => {
     }
     // bubble up the expense
     setExpense(expense)
+    setAddExpense(true)
     // reset form
     setExpenseName('')
     setExpenseAmount(0)
@@ -68,7 +69,8 @@ const Form = ({ setExpense }) => {
 }
 
 Form.propTypes = {
-  setExpense: PropTypes.func.isRequired
+  setExpense: PropTypes.func.isRequired,
+  setAddExpense: PropTypes.func.isRequired
 }
 
 export default Form
