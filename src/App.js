@@ -1,13 +1,14 @@
 import React, { Fragment, useState } from 'react'
 import Question from './components/Question'
 import Form from './components/Form'
+import List from './components/List'
 
 function App() {
   // Define the state
   const [budget, setBudget] = useState(0)
   const [rest, setRest] = useState(0)
   const [showQuestion, setShowQuestion] = useState(true)
-  const [expenses, setExpenses] = useState('')
+  const [expenses, setExpenses] = useState([])
 
   const handleSetExpense = expense => {
     setExpenses([...expenses, expense])
@@ -29,7 +30,9 @@ function App() {
               <div className='row one-half column'>
                 <Form setExpense={handleSetExpense} />
               </div>
-              <div className='row one-half column'>2</div>
+              <div className='row one-half column'>
+                <List expenses={expenses} />
+              </div>
             </div>
           )}
         </div>
