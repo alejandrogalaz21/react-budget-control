@@ -7,6 +7,11 @@ function App() {
   const [budget, setBudget] = useState(0)
   const [rest, setRest] = useState(0)
   const [showQuestion, setShowQuestion] = useState(true)
+  const [expenses, setExpenses] = useState('')
+
+  const handleSetExpense = expense => {
+    setExpenses([...expenses, expense])
+  }
 
   return (
     <div className='container'>
@@ -22,7 +27,7 @@ function App() {
           ) : (
             <div className='row '>
               <div className='row one-half column'>
-                <Form />
+                <Form setExpense={handleSetExpense} />
               </div>
               <div className='row one-half column'>2</div>
             </div>
